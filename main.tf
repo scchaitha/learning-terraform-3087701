@@ -68,5 +68,3 @@ resource "awes_security_group_rule" "blog_everything_out" {
 }
 
 
-
-}
