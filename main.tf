@@ -35,7 +35,7 @@ module "blog_vpc" {
 
 
 
-module "autoscaling" {
+module "autoscaling" "blog" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "6.10.0"
 
@@ -73,7 +73,7 @@ module "blog_alb" {
       target_type      = "instance"
       targets = {
         my_target = {
-          target_id = autoscaling.iam_instance_profile_id
+          target_id = autoscaling.blog.iam_instance_profile_id
           port = 80
         }
       }
