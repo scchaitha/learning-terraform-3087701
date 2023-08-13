@@ -22,8 +22,8 @@ module "vpc" {
   cidr = "10.0.0.0/16"
 
   azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
-  #public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
-  public_subnets  = ["172.31.32.0/20", "172.31.16.0/20", "172.31.0.0/20"]
+  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+  #public_subnets  = ["172.31.32.0/20", "172.31.16.0/20", "172.31.0.0/20"]
 
   #enable_nat_gateway = true
 
@@ -38,7 +38,6 @@ module "vpc" {
 resource "aws_instance" "blog" {
   ami           = data.aws_ami.app_ami.id
   instance_type = var.instance_type
-  #vpc_security_group_ids = [aws_security_group.blog.id] 
   vpc_security_group_ids = [module.blog_sg.security_group_id]
   tags = {
     Name = "HelloWorld"
