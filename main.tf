@@ -73,7 +73,7 @@ module "blog_alb" {
       target_type      = "instance"
       targets = {
         my_target = {
-          target_id = autoscaling.blog.id
+          target_id = autoscaling.iam_instance_profile_id
           port = 80
         }
       }
