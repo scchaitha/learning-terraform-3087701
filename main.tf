@@ -43,7 +43,7 @@ module "blog_sg" {
   ingress_cidr_blocks = ["0.0.0.0/0"]
 
   egress_rule        = ["all-all"]
-  ingress_cidr_blocks = ["0.0.0.0/0"]
+  egress_cidr_blocks = ["0.0.0.0/0"]
   
 }
 
