@@ -70,10 +70,6 @@ module "alb" {
           target_id = aws_instance.blog.id
           port = 80
         }
-        my_other_target = {
-          target_id = "i-a1b2c3d4e5f6g7h8i"
-          port = 8080
-        }
       }
     }
   ]
@@ -98,7 +94,7 @@ module "blog_sg" {
   version = "5.1.0"
   name = "blog_new"
 
-  vpc_id = module.vpc_blog.public_subnets[0]
+  vpc_id = module.blog_vpc.public_subnets[0]
   
   ingress_rules        = ["http-80-tcp","https-443-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
